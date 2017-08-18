@@ -1,0 +1,270 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <style type="text/css">
+            .container{
+                width: 300px;
+                font-family: Arial, "Liberation Sans", "Droid Sans", Tahoma, "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif;
+                margin: auto;
+            }
+            
+            /* Slide to the side */
+            .inputSlideSide{
+                position: relative;
+                margin-top: 25px;
+                height: 30px; /* TUTAJ WYSOKOŚĆ */
+            }
+            .inputSlideSide > label, .inputSlideSide > input{
+                display: block;
+                height: 30px; /*TUTAJ WYSOKOŚĆ*/
+            }
+            .inputSlideSide > input{
+                width: 150px; /* TUTAJ DŁUGOŚĆ */
+                background: #2badcc;
+                outline: none;
+                border: none;
+                color: white;
+                padding-left: 5px;
+                box-sizing: border-box;
+            }
+            .inputSlideSide > label{
+                line-height: 30px; /* TUTAJ WYSOKOŚĆ */
+                width: 150px; /* TUTAJ DŁUGOŚĆ */
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                transition: transform 0.1s, color 0.1s;
+                display: block;
+                background: #038aaa;
+                color: white;
+                transform-origin: 0 0;
+                text-align: center;
+                cursor: pointer;
+            }
+            .inputSlideSide > input:focus + label{
+                transform: translateX(-100%);
+                color: white;
+            }
+            .inputSlideSide > input:focus + label.right{
+                transform: translateX(100%);
+                color: white;
+            }
+            
+            /* Slide up */
+            
+            .inputSlideVert{
+                position: relative;
+                margin-top: 25px;
+                height: 30px; /* TUTAJ WYSOKOŚĆ */
+            }
+            .inputSlideVert > label, .inputSlideVert > input{
+                display: block;
+                height: 30px; /*TUTAJ WYSOKOŚĆ*/
+            }
+            .inputSlideVert > input{
+                width: 150px; /* TUTAJ DŁUGOŚĆ */
+                background: #2badcc;
+                outline: none;
+                border: none;
+                color: white;
+                padding-left: 5px;
+                box-sizing: border-box;
+            }
+            .inputSlideVert > label{
+                line-height: 30px; /* TUTAJ WYSOKOŚĆ */
+                width: 150px; /* TUTAJ DŁUGOŚĆ */
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                transition: transform 0.1s, color 0.1s;
+                display: block;
+                background: #038aaa;
+                color: white;
+                transform-origin: 50% 50%;
+                text-align: center;
+                cursor: pointer;
+                animation-duration: 0.5s;
+                animation-fill-mode: forwards;
+                animation-name: showButtonV;
+            }
+            .inputSlideVert > input:focus + label{
+                animation-name: hideButtonV;
+                color: white;
+            }
+            
+            @keyframes showButtonV{
+                0%{ 
+                    transform: translateY(-40%) scaleX(0.95);
+                    z-index: -1;
+                }
+                49%{
+                    z-index: -1;
+                }
+                50%{ 
+                    transform: translateY(-100%) scaleX(0.99);
+                    z-index: 1000;
+                }
+                100%{
+                    transform: translateY(0) scaleX(1);
+                    z-index: 1000;
+                }
+            }
+            
+            @keyframes hideButtonV{
+                0%{ 
+                    transform: translateX(0) scaleX(1);
+                }
+                50%{ 
+                    transform: translateY(-100%) scaleX(0.99);
+                    z-index: -1;
+                }
+                100%{
+                    transform: translateY(-40%) scaleX(0.95);
+                    z-index: -1;
+                }
+            }
+            
+            /* Slide side */
+            
+            .inputSlideHor{
+                position: relative;
+                margin-top: 25px;
+                height: 30px; /* TUTAJ WYSOKOŚĆ */
+            }
+            .inputSlideHor > label, .inputSlideHor > input{
+                display: block;
+                height: 30px; /*TUTAJ WYSOKOŚĆ*/
+            }
+            .inputSlideHor > input{
+                width: 150px; /* TUTAJ DŁUGOŚĆ */
+                background: #2badcc;
+                outline: none;
+                border: none;
+                color: white;
+                padding-left: 5px;
+                box-sizing: border-box;
+            }
+            .inputSlideHor > label{
+                line-height: 30px; /* TUTAJ WYSOKOŚĆ */
+                width: 150px; /* TUTAJ DŁUGOŚĆ */
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                transition: transform 0.1s, color 0.1s;
+                display: block;
+                background: #038aaa;
+                color: white;
+                transform-origin: 50% 50%;
+                text-align: center;
+                cursor: pointer;
+                animation-duration: 0.5s;
+                animation-fill-mode: forwards;
+                animation-name: showButtonH;
+            }
+            .inputSlideHor > input:focus + label{
+                animation-name: hideButtonH;
+                color: white;
+            }
+            
+            @keyframes showButtonH{
+                0%{ 
+                    transform: translateX(-30%) scaleY(0.8);
+                    z-index: -1;
+                }
+                49%{
+                    z-index: -1;
+                }
+                50%{ 
+                    transform: translateX(-100%) scaleY(0.9);
+                    z-index: 1000;
+                }
+                100%{
+                    transform: translateX(0) scaleY(1);
+                    z-index: 1000;
+                    text-align: center;
+                }
+            }
+            
+            @keyframes hideButtonH{
+                0%{ 
+                    transform: translateX(0) scaleY(1);
+                }
+                50%{ 
+                    transform: translateX(-100%) scaleY(0.9);
+                    z-index: -1;
+                }
+                100%{
+                    transform: translateX(-30%) scaleY(0.8);
+                    z-index: -1;
+                    text-align: left;
+                }
+            }
+            
+            /* Rotate */
+            
+            .inputRotate{
+                position: relative;
+                margin-top: 25px;
+                height: 30px; /* TUTAJ WYSOKOŚĆ */
+            }
+            .inputRotate > label, .inputRotate > input{
+                display: block;
+                height: 30px; /*TUTAJ WYSOKOŚĆ*/
+            }
+            .inputRotate > input{
+                width: 150px; /* TUTAJ DŁUGOŚĆ */
+                background: #2badcc;
+                outline: none;
+                border: none;
+                color: white;
+                padding-left: 5px;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
+            .inputRotate > label{
+                line-height: 30px; /* TUTAJ WYSOKOŚĆ */
+                width: 150px; /* TUTAJ DŁUGOŚĆ */
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                transition: transform 0.4s, color 0.1s, width 0.4s;
+                display: block;
+                background: #038aaa;
+                color: white;
+                transform-origin: 0 0;
+                text-align: center;
+                cursor: pointer;
+            }
+            .inputRotate > input:focus + label{
+                transform: rotateZ(360deg);
+                z-index: -1;
+                color: white;
+                width: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="inputSlideSide">
+                <input type="text"/>
+                <label class="right">Nazwa1</label>
+            </div>
+            <div class="inputSlideSide">
+                <input type="text"/>
+                <label>Nazwa2</label>
+            </div>
+            <div class="inputSlideVert">
+                <input type="text"/>
+                <label class="">Nazwa3</label>
+            </div>
+            <div class="inputSlideHor">
+                <input type="text"/>
+                <label class="">Nazwa4</label>
+            </div>
+            <div class="inputRotate">
+                <input type="text"/>
+                <label class="">Nazwa5</label>
+            </div>
+        </div>
+    </body>
+</html>
